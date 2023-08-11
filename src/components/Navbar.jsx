@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineMenu, AiOutlineSearch, AiOutlineClose, AiFillTag, AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsFillCartFill, BsFillSaveFill } from 'react-icons/bs';
 import { TbTruckDelivery } from 'react-icons/tb'
@@ -6,10 +6,20 @@ import { FaUserFriends, FaWallet } from 'react-icons/fa'
 import { MdFavorite, MdHelp } from 'react-icons/md'
 
 const Navbar = () => {
+    const [disableScroll, setDisableScroll] = useState(false);
     const [nav, setNav] = useState(false);
     const toggleNav = () => {
         setNav(!nav)
+        setDisableScroll(!disableScroll)
     }
+
+    useEffect(() => {
+        if (disableScroll) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }, [disableScroll]);
     return (
         <nav className='w-full flex items-center justify-between py-[20px]'>
             <div className='flex items-center gap-4'>
