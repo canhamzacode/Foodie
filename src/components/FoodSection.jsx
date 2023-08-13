@@ -64,13 +64,13 @@ const FoodSection = () => {
             </div>
             <div className='w-full grid grid-cols-1 md:grid-cols-4 gap-4'>
                 {currentItems.map((food, index) => (
-                    <div className='bg-slate-200 shadow-md ' key={index}>
+                    <div className='bg-slate-200 shadow-md w-full' key={index}>
                         <div className='h-[200px] w-full'>
                             <img src={food.image} alt={food.name} className='object-cover h-full w-full' />
                         </div>
-                        <div className='w-full flex justify-between items-center p-4 flex-wrap'>
-                            <p className='text-[19px]'>{food.name}</p>
-                            <button className='bg-orange-500 text-white border-none'>{food.price}</button>
+                        <div className='w-full grid justify-between items-center p-4 grid-cols-1 gap-1'>
+                            <p className='text-[15px] font-bold text-center'>{food.name}</p>
+                            <button className='bg-orange-500 text-white border-none w-full'>{food.price}</button>
                         </div>
                     </div>
                 ))}
